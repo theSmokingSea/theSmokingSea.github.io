@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>1. 定义案例研究 | 漫艺海的blog</title><meta name="author" content="漫艺海"><meta name="copyright" content="漫艺海"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1. 定义案例研究1.1 简要介绍本书是关于编程设计的。然而，与许多关于这个主题的书不同，本书通过探索而不是指令教授设计。通常，大多数关于设计方面的作者都会确立他们想要传达的原则，在抽象的地方阐述这些原则，然后继续提供支持当前观点的示例。本书不是这样的。相反，本书定义了一个要解决的实际问题，然后详细给出其解决方案。也就是说，与决定一个主题并创建支持其教学的琐碎示例相反，我已经定义了一个困难的问题，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1. 定义案例研究">
+<meta property="og:url" content="http://example.com/2023/03/26/Practical-Cpp-Design-From-Programming-to-Architecture/1.Defining-the-Case-Study/index.html">
+<meta property="og:site_name" content="漫艺海的blog">
+<meta property="og:description" content="1. 定义案例研究1.1 简要介绍本书是关于编程设计的。然而，与许多关于这个主题的书不同，本书通过探索而不是指令教授设计。通常，大多数关于设计方面的作者都会确立他们想要传达的原则，在抽象的地方阐述这些原则，然后继续提供支持当前观点的示例。本书不是这样的。相反，本书定义了一个要解决的实际问题，然后详细给出其解决方案。也就是说，与决定一个主题并创建支持其教学的琐碎示例相反，我已经定义了一个困难的问题，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/logo.png">
+<meta property="article:published_time" content="2023-03-26T07:29:18.589Z">
+<meta property="article:modified_time" content="2023-03-26T07:29:18.589Z">
+<meta property="article:author" content="漫艺海">
+<meta property="article:tag" content="Practical C++ Design From Programming to Architecture 1ed">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/logo.png"><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="http://example.com/2023/03/26/Practical-Cpp-Design-From-Programming-to-Architecture/1.Defining-the-Case-Study/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '1. 定义案例研究',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-26 15:29:18'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="漫艺海的blog"><span class="site-name">漫艺海的blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">1. 定义案例研究</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-26T07:29:18.589Z" title="发表于 2023-03-26 15:29:18">2023-03-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-26T07:29:18.589Z" title="更新于 2023-03-26 15:29:18">2023-03-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Qt/">Qt</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="1. 定义案例研究"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="1-定义案例研究"><a href="#1-定义案例研究" class="headerlink" title="1. 定义案例研究"></a>1. 定义案例研究</h1><h2 id="1-1-简要介绍"><a href="#1-1-简要介绍" class="headerlink" title="1.1 简要介绍"></a>1.1 简要介绍</h2><p>本书是关于编程设计的。然而，与许多关于这个主题的书不同，本书通过探索而不是指令教授设计。通常，大多数关于设计方面的作者都会确立他们想要传达的原则，在抽象的地方阐述这些原则，然后继续提供支持当前观点的示例。本书不是这样的。相反，本书定义了一个要解决的实际问题，然后详细给出其解决方案。也就是说，与决定一个主题并创建支持其教学的琐碎示例相反，我已经定义了一个困难的问题，然后通过这个问题的解决方案决定应该讨论哪些主题。</p>
+<p>有趣的是，上述方法正是我告诉别人不要学习一个科目的方法。我总是强调人们应该首先学习广泛的基础知识，然后将这些知识应用于解决问题。也就是，这并不是一本旨在教授设计原理的书。相反，这本书是为那些已经知道基本原理但希望加深实践知识的人准备的。这本书的目的是教授人们如何运用基础从头到尾设计和实现一个现实的，尽管较小的程序。这个过程不仅仅涉及到对设计模式的了解。它涉及到理解何时以及如何使用你所知道的东西，理解如何在看似相等的方法之间做出决定，以及理解各种决定的长期影响。本书在数据结构、算法、设计模式或C++最佳实践方面的覆盖面并不全面，不过已有大量的书籍涉及这些主题。这本书是关于学习如何将这些知识应用于编写有组织、紧密、明智、有目的和实用的代码的。换句话说，这本书是关于学习如何写出既能完成现在的工作（开发）又能让别人在未来继续完成工作（维护）的代码。这一点，我称之为实用设计。</p>
+<p>为了探索实用设计，我们需要一个案例研究。理想情况下，案例研究问题应该具备以下特点：</p>
+<ul>
+<li>足够大，不仅仅是微不足道的；</li>
+<li>足够小，易于处理；</li>
+<li>足够熟悉，不需要特定领域的专业知识；</li>
+<li>足够有趣，以保持读者在整本书的过程中的兴趣。</li>
+</ul>
+<p>考虑到上述标准，我决定选择基于栈的逆波兰式（RPN）计算器作为案例研究。下面将定义计算器的需求详情。我相信完整计算器的代码足够重要，以提供充分的设计研究材料以涵盖一本书。然而，该项目足够小，以使这本书成为一个合理的长度。当然，不需要专门的领域专业知识。我猜想，这本书的每一位读者都使用过计算器，并对其基本功能非常熟悉。最后，我希望使计算器RPN能够提供一个合适的变化，以避免无聊。</p>
+<h2 id="1-2-关于需求的几点说明"><a href="#1-2-关于需求的几点说明" class="headerlink" title="1.2 关于需求的几点说明"></a>1.2 关于需求的几点说明</h2><p>不管程序有多大或有多小，所有程序都有需求。需求是程序必须遵守的特性，无论是明确的还是隐含的。关于收集和管理软件需求的整本书已经被写下了（请参阅[28]或[21]）。通常情况下，尽管一个人尽了最大努力，但实际上不可能一次性收集所有的需求。有时，所需的努力在经济上是不可行的。有时，领域专家会忽略对他们来说似乎是显而易见的需求，他们根本没有向开发团队说明他们的所有需求。有时，需求只有在程序开始形成后才能明显。有时，客户不了解他的需求，因此不能向开发团队说明。虽然使用敏捷开发方法可以减轻一些困境，但事实仍然是，许多设计决策，其中一些可能有深远影响，必须在所有需求已知之前发生。</p>
+<p>本书不会研究如何收集需求，而是先给出了大部分需求。有些需求将在以后的章节中确定，这样您就可以研究设计如何改变以适应未知的未来扩展。当然，人们可以理直气壮的说，既然作者知道需求会如何变化，那么最初的设计就会正确的 “预测 “那些不可预见的功能。尽管这种批评是公正的，但我仍然认为设计决策背后的思维和讨论仍然是相关的。作为软件架构师，您的工作之一将是预测未来的需求。虽然任何需求都是可能的，但在一开始就过多地w为灵活性考虑并不经济。设计未来扩展总是要考虑成本差异，即在一开始明确适应扩展性的成本与如果需求更改时修改代码的成本之间的平衡。一个设计在简单性和灵活性之间的落脚点，最终必须根据功能需求实现的可能性和增加新功能的可行性来衡量，如果一开始就不考虑它的话。</p>
+<h2 id="1-3-逆波兰表示法"><a href="#1-3-逆波兰表示法" class="headerlink" title="1.3 逆波兰表示法"></a>1.3 逆波兰表示法</h2><p>我假定有人读这本书时都熟悉计算器的操作。然而，除非你在使用惠普计算器长大，否则你可能不熟悉基于堆栈的逆波兰表示法（RPN）计算器的工作方式（如果不熟悉堆栈的工作方式，请参阅[5]）。简单地说，输入的数字被压入堆栈，并在堆栈上的数字上执行操作。二进制运算符，例如加法，从堆栈顶部弹出前两个数字，将这两个数字相加，然后将结果压入堆栈。单目运算符，例如正弦函数，从堆栈顶部弹出一个数字，使用该数字作为操作数，并将结果压入堆栈。对于那些熟悉基本编译语言的人来说，RPN充当操作的后缀表示法（有关后缀表示法的详细讨论，请参阅[1]）。以下列表描述了我对逆波兰表示法优于常规语法的仅仅几点观点：</p>
+<ul>
+<li>所有操作都可以不使用圆括号表示。</li>
+<li>多个输入和输出可以同时可视化。</li>
+<li>复杂的计算可以轻松地分解为多个简单的操作。</li>
+<li>中间结果可以轻松保留和重复使用。</li>
+</ul>
+<p>虽然一开始使用逆波兰表达式（RPN）可能感觉极其奇怪，但是一旦适应了，当你需要完成复杂运算时，你会诅咒没有使用它的每一个计算器。</p>
+<p>为了确保 RPN 计算器的操作是明确的，让我们来看一个简短的例子。假设我们想计算以下表达式：$\frac{\left(4+7\right)\ast 3+2}{7}$</p>
+<p>在一般的非 RPN 计算器上，我们会输入((4 + 7) * 3 + 2)&#x2F;7并点击 &#x3D; 键。在 RPN 计算器上，我们则输入 4 7 + 3 * 2 + 7 &#x2F;，其中在每个数字后面都有一个回车命令，以便将输入压入堆栈。请注意，对于许多计算器，为了减少键盘输入操作，如 +，也可以隐式地进入堆栈中的前一个数字。图 1-1 显示了在 RPN 计算器上上述计算的步骤。</p>
+<center>
+    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"
+    src="1.Defining-the-Case-Study/A454125_1_En_1_Fig1_HTML.gif" alt=""/>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block; color: #999; padding: 2px;">
+        图1-1 RPN计算器上执行的示例计算，显示了中间步骤。出乎意料的是，栈的顶部位于屏幕底部。
+      </div>
+</center>
+
+<p>图1-1展示了在RPN计算器上的计算过程的一个例子，其中包括了计算的中间步骤。这个计算是在堆栈上进行的，输入的数字被压入堆栈，然后在堆栈上已有的数字上执行操作。堆栈顶部位于屏幕底部，对某些人来说可能是不太直观的。该图展示了如何使用二进制和一元运算符从堆栈弹出数字，如何对它们执行操作，并将结果压入堆栈的步骤。</p>
+<h2 id="1-4-计算器的需求"><a href="#1-4-计算器的需求" class="headerlink" title="1.4 计算器的需求"></a>1.4 计算器的需求</h2><p>理解逆波兰表示法的本质后，您应该能够很容易地根据需求说明理解计算器的其余功能。 如果您对逆波兰表示法仍然不清楚，建议您先澄清这个概念再继续。因此，定义计算器的要求如下：</p>
+<ul>
+<li>计算器将基于堆栈运作，堆栈大小不应该是硬编码的。</li>
+<li>计算器将使用逆波兰表达式（RPN）执行运算。</li>
+<li>计算器将专门运算浮点数；应实现一种输入数字（包括科学记数法）的技术。</li>
+<li>计算器将具有撤消和重做操作的能力；撤消&#x2F;重做堆栈大小应是无限的。</li>
+<li>计算器将具有交换堆栈顶部两个元素的能力。</li>
+<li>计算器将能够从堆栈顶部删除（删除）一个元素。</li>
+<li>计算器将能够清除整个堆栈。</li>
+<li>计算器将能够复制堆栈顶部的元素。</li>
+<li>计算器将能够取消堆栈顶部的元素。</li>
+<li>计算器将实现四种基本算术运算：加法、减法、乘法和除法。除以0是不允许的。</li>
+<li>计算器将实现三种基本三角函数和它们的逆函数：sin、cos、tan、arcsin、arccos和arctan。三角函数的参数将以弧度为单位给出。</li>
+<li>计算器将实现 $ y^x $ 和 $ \sqrt[x]{y} $ 的函数。</li>
+<li>计算器将实现运行时插件结构，以扩展计算器可以执行的操作。</li>
+<li>计算器将实现命令行界面（CLI）和图形用户界面（GUI）。</li>
+<li>计算器不支持无穷大或虚数。</li>
+<li>计算器将是容错的（即，如果用户给出错误的输入不会崩溃），但不需要处理浮点数异常。</li>
+</ul>
+<p>现在，计算器已经有了需求，它应该有一个名字。我选择将计算器命名为 pdCalc，意为实用设计计算器。对于我的命名缺乏创意，请接受我的歉意。</p>
+<p>本书的其余部分将详细检查满足上述要求的计算器的完整设计。除了描述最终设计的决策外，我还将讨论其他选择，以便您理解为什么做出最终决策，以及不同决策的可能后果。请注意，本书中呈现的最终设计不是唯一能满足要求的设计，甚至可能不是满足要求的最佳设计。我鼓励有抱负的读者尝试其他设计并将计算器扩展以满足自己的需求和兴趣。</p>
+<h2 id="1-5-源代码"><a href="#1-5-源代码" class="headerlink" title="1.5 源代码"></a>1.5 源代码</h2><p>在本书中，我们将检查大量代码片段，以设计我们的计算器。大多数代码片段是直接从pdCalc的GitHub源代码库中获取的（有关下载源代码的说明，请参见附录A）。我将指出文本代码与代码库中的代码之间的任何显著差异。偶尔，代码片段由小的、人为构造的示例组成。这些代码片段不是pdCalc源代码库的一部分。所有代码均根据GPL版本3授权[7]。我强烈建议您对源代码进行实验并按自己的方式进行修改。</p>
+<p>为了构建pdCalc，您需要访问C++14兼容的编译器和Qt（版本4或5）。由于该项目具有内在的Qt依赖（并且因为我喜欢Qt Creator IDE），我使用Qt项目文件作为构建系统，并使用Qt Test作为单元测试框架。我已经使用gcc &#x2F; mingw在Linux和Windows上构建和测试了该程序，但代码也应该可以在其他系统上构建和执行，或在其他编译器上执行，源代码修改很少或根本不修改。在移植到不同平台时，需要对qmake项目文件进行微调。因为我预期该书的读者偏向于具有多年经验的开发人员，因此我认为从源代码构建代码将是一项相当简单的任务。然而，为了完整性，我已经在附录A中包含了构建指导。此外，我还在附录B中说明了pdCalc源代码、库和可执行文件的组织。尽管这两个附录出现在本书的末尾，但如果您打算构建pdCalc并在阅读文本时探索其全部实现，您可能希望首先阅读它们。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">漫艺海</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/03/26/Practical-Cpp-Design-From-Programming-to-Architecture/1.Defining-the-Case-Study/">http://example.com/2023/03/26/Practical-Cpp-Design-From-Programming-to-Architecture/1.Defining-the-Case-Study/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">漫艺海的blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Practical-C-Design-From-Programming-to-Architecture-1ed/">Practical C++ Design From Programming to Architecture 1ed</a></div><div class="post_share"><div class="social-share" data-image="/img/logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2023/03/26/Practical-Cpp-Design-From-Programming-to-Architecture/3.Stack/" title="3. 堆栈"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">3. 堆栈</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/03/26/Practical-Cpp-Design-From-Programming-to-Architecture/2.Decomposition/" title="2. 分解"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-26</div><div class="title">2. 分解</div></div></a></div><div><a href="/2023/03/26/Practical-Cpp-Design-From-Programming-to-Architecture/4.The-Command-Dispatcher/" title="4. 命令分发器"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-26</div><div class="title">4. 命令分发器</div></div></a></div><div><a href="/2023/03/26/Practical-Cpp-Design-From-Programming-to-Architecture/3.Stack/" title="3. 堆栈"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-26</div><div class="title">3. 堆栈</div></div></a></div><div><a href="/2023/03/26/Practical-Cpp-Design-From-Programming-to-Architecture/5.The-Command-Line-Interface/" title="5. 命令行接口"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-26</div><div class="title">5. 命令行接口</div></div></a></div><div><a href="/2023/03/26/Practical-Cpp-Design-From-Programming-to-Architecture/6.The-Graphical-User-Interface/" title="6. 图形用户界面"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-26</div><div class="title">6. 图形用户界面</div></div></a></div><div><a href="/2023/03/26/Practical-Cpp-Design-From-Programming-to-Architecture/8.New-Requirements/" title="8. 新的需求"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-26</div><div class="title">8. 新的需求</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">漫艺海</div><div class="author-info__description">漫艺海的个人站，主要涉及C++知识共享、实践教程等方面</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn"><i class="fab fa-github"></i><span>关注我</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6"><span class="toc-number">1.</span> <span class="toc-text">1. 定义案例研究</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 简要介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%85%B3%E4%BA%8E%E9%9C%80%E6%B1%82%E7%9A%84%E5%87%A0%E7%82%B9%E8%AF%B4%E6%98%8E"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 关于需求的几点说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 逆波兰表示法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E8%AE%A1%E7%AE%97%E5%99%A8%E7%9A%84%E9%9C%80%E6%B1%82"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 计算器的需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 源代码</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/26/Practical-Cpp-Design-From-Programming-to-Architecture/2.Decomposition/" title="2. 分解">2. 分解</a><time datetime="2023-03-26T12:29:12.423Z" title="发表于 2023-03-26 20:29:12">2023-03-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/26/test/" title="9. 新的需求">9. 新的需求</a><time datetime="2023-03-26T10:43:27.480Z" title="发表于 2023-03-26 18:43:27">2023-03-26</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2023/03/26/Practical-Cpp-Design-From-Programming-to-Architecture/8.New-Requirements/" title="8. 新的需求">8. 新的需求</a><time datetime="2023-03-26T07:30:13.117Z" title="发表于 2023-03-26 15:30:13">2023-03-26</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2023/03/26/Practical-Cpp-Design-From-Programming-to-Architecture/7.Plugins/" title="7. 插件">7. 插件</a><time datetime="2023-03-26T07:30:10.759Z" title="发表于 2023-03-26 15:30:10">2023-03-26</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2023/03/26/Practical-Cpp-Design-From-Programming-to-Architecture/6.The-Graphical-User-Interface/" title="6. 图形用户界面">6. 图形用户界面</a><time datetime="2023-03-26T07:30:08.133Z" title="发表于 2023-03-26 15:30:08">2023-03-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 漫艺海</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">世上最幸运的事就是喜欢上一个人</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container').forEach(node => {
+            if (node.hasAttribute('display')) {
+              btf.wrap(node, 'div', { class: 'mathjax-overflow' })
+            } else {
+              btf.wrap(node, 'span', { class: 'mathjax-overflow' })
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></body></html>
